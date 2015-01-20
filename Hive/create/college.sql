@@ -14,13 +14,24 @@ CREATE DATABASE college;
 USE college;
 
 -- Create the schema for the tables
-CREATE TABLE College( cName STRING, state STRING, enrollment INT )
+CREATE TABLE College ( 
+cName STRING COMMENT 'College name', 
+state STRING COMMENT 'State code', 
+enrollment INT COMMENT 'Enrollment number' )
 COMMENT 'List of colleges';
 
-CREATE TABLE Student( sID INT, sName STRING, GPA FLOAT, sizeHS INT )
+CREATE TABLE Student ( 
+sID INT COMMENT 'Student ID', 
+sName STRING COMMENT 'Student name', 
+GPA FLOAT COMMENT 'Student GPA', 
+sizeHS INT COMMENT 'Size of student highschool')
 COMMENT 'List of students';
 
-CREATE TABLE Apply( sID INT, cName STRING, major STRING, decision STRING )
+CREATE TABLE Apply ( 
+sID INT COMMENT 'Student ID', 
+cName STRING COMMENT 'College name', 
+major STRING COMMENT 'Major that student applies for', 
+decision STRING COMMENT 'Application result, either Y or N' )
 COMMENT 'List of applications';
 
 -- Populate the tables
