@@ -27,15 +27,24 @@ sID INT COMMENT 'Student ID',
 sName STRING COMMENT 'Student name', 
 GPA FLOAT COMMENT 'Student GPA', 
 sizeHS INT COMMENT 'Size of student highschool')
-COMMENT 'List of students';
+COMMENT 'List of students'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\073' -- use octal instead of semicolon
+STORED AS TEXTFILE;
 
 CREATE TABLE Apply ( 
 sID INT COMMENT 'Student ID', 
 cName STRING COMMENT 'College name', 
 major STRING COMMENT 'Major that student applies for', 
 decision STRING COMMENT 'Application result, either Y or N' )
-COMMENT 'List of applications';
+COMMENT 'List of applications'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ', '
+STORED AS TEXTFILE;
 
 -- Populate the tables
+-- Hive currently does not support insert row by row
 LOAD DATA INPATH '/user/cloudera/college/college.data' OVERWRITE INTO TABLE College;
+
+LOAD DATA INPATH '/user/cloudera/college/student.data' OVERWRITE INTO TABLE Student;
+
+LOAD DATA INPATH '/user/cloudera/college/apply.data' OVERWRITE INTO TABLE Apply;
 
