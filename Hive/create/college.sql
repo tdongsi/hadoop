@@ -18,7 +18,9 @@ CREATE TABLE College (
 cName STRING COMMENT 'College name', 
 state STRING COMMENT 'State code', 
 enrollment INT COMMENT 'Enrollment number' )
-COMMENT 'List of colleges';
+COMMENT 'List of colleges'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
 
 CREATE TABLE Student ( 
 sID INT COMMENT 'Student ID', 
@@ -35,4 +37,5 @@ decision STRING COMMENT 'Application result, either Y or N' )
 COMMENT 'List of applications';
 
 -- Populate the tables
+LOAD DATA INPATH '/user/cloudera/college/college.data' OVERWRITE INTO TABLE College;
 
