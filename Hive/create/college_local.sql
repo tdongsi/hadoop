@@ -28,7 +28,7 @@ sName STRING COMMENT 'Student name',
 GPA FLOAT COMMENT 'Student GPA', 
 sizeHS INT COMMENT 'Size of student highschool')
 COMMENT 'List of students'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\073' -- use octal instead of semicolon
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\073' -- use octal code instead of actual semicolon character
 STORED AS TEXTFILE;
 
 CREATE TABLE Apply ( 
@@ -42,9 +42,9 @@ STORED AS TEXTFILE;
 
 -- Populate the tables
 -- Hive currently does not support insert row by row
-LOAD DATA LOCAL INPATH '/home/cloudera/Hub/hadoop/Hive/create/college.data' OVERWRITE INTO TABLE College;
+LOAD DATA LOCAL INPATH './college.data' OVERWRITE INTO TABLE College;
 
-LOAD DATA LOCAL INPATH '/home/cloudera/Hub/hadoop/Hive/create/student.data' OVERWRITE INTO TABLE Student;
+LOAD DATA LOCAL INPATH './student.data' OVERWRITE INTO TABLE Student;
 
-LOAD DATA LOCAL INPATH '/home/cloudera/Hub/hadoop/Hive/create/apply.data' OVERWRITE INTO TABLE Apply;
+LOAD DATA LOCAL INPATH './apply.data' OVERWRITE INTO TABLE Apply;
 

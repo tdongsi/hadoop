@@ -28,7 +28,7 @@ sName STRING COMMENT 'Student name',
 GPA FLOAT COMMENT 'Student GPA', 
 sizeHS INT COMMENT 'Size of student highschool')
 COMMENT 'List of students'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\073' -- use octal instead of semicolon
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\073' -- use octal code instead of actual semicolon character
 STORED AS TEXTFILE;
 
 CREATE TABLE Apply ( 

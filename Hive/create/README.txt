@@ -1,5 +1,9 @@
 # These scripts and procedure are tested with Cloudera VM only.
 
+#######################################
+# Method 1: go through HDFS
+#######################################
+
 # Put the data files (as csv files) to HDFS
 hdfs dfs -mkdir /user/cloudera/college
 hdfs dfs -put ./college.data /user/cloudera/college
@@ -20,3 +24,11 @@ hive
 hive> use college;
 hive> show tables;
 hive> select * from college;
+
+
+
+#######################################
+# Method 2: use local data file
+#######################################
+hive -f college_local.sql
+
