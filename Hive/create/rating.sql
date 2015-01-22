@@ -16,11 +16,11 @@ year INT comment 'Release year',
 director STRING comment 'Director name'
 )
 COMMENT 'List of movies'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ', '
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 STORED AS TEXTFILE;
 
 -- Populate the tables with data
 LOAD DATA LOCAL INPATH './movie.data' OVERWRITE INTO TABLE Movie;
 
--- Show table
+-- Show tables
 SELECT * FROM Movie;
